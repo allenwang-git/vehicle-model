@@ -16,7 +16,7 @@
   <link name="base">
     <visual>
       <geometry>
-        <mesh filename="package://vehicle_model/meshes/lc.stl" scale="1.0 1.0 1.0"/>
+        <mesh filename="package://vehicle_model/meshes/lc.dae" scale="1.0 1.0 1.0"/>
 
       </geometry>
         <!-- <material name="aluminum"> 
