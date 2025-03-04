@@ -4,22 +4,22 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="pacifica_structure">
-  <link name="map"/>
+  <link name="velodyne_frame"/>
   <link name="camera_00_frame">
   </link>
   <link name="camera_01_frame">
   </link>
-  <link name="base">
+  <link name="base_footprint">
     <visual>
       <origin rpy="0 0 0" xyz="-0.06 0 0.1"/>
       <geometry>
-        <mesh filename="https://storage.googleapis.com/assets.foxglove.dev/demo-datasets/kitti-360/urdf/mesh/pacifica_18/body.dae" scale="0.96 0.96 0.96"/>
+        <mesh filename="../urdf/meshes/pacifica_18/body.dae" scale="0.96 0.96 0.96"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.06 0 0.1"/>
       <geometry>
-        <mesh filename="https://storage.googleapis.com/assets.foxglove.dev/demo-datasets/kitti-360/urdf/mesh/pacifica_18/body_collision.stl" scale="0.96 0.96 0.96"/>
+        <mesh filename="../urdf/meshes/pacifica_18/body_collision.stl" scale="0.96 0.96 0.96"/>
       </geometry>
     </collision>
     <inertial>
@@ -28,18 +28,18 @@
       <inertia ixx="510.3539333333333" ixy="0" ixz="0" iyy="3489.7477333333336" iyz="0" izz="3865.581666666667"/>
     </inertial>
   </link>
-  <joint name="base" type="fixed">
-    <parent link="map"/>
-    <child link="base"/>
+  <joint name="base_link_joint" type="fixed">
+    <parent link="velodyne_frame"/>
+    <child link="base_footprint"/>
     <origin rpy="0 0 0" xyz="0.54 0 -1.435"/>
   </joint>
   <joint name="cam_00_to_velo_joint" type="fixed">
-    <parent link="map"/>
+    <parent link="velodyne_frame"/>
     <child link="camera_00_frame"/>
     <origin rpy="-1.57079633 0 -1.57079633" xyz="0.79 0.3 -0.18"/>
   </joint>
   <joint name="cam_01_to_velo_joint" type="fixed">
-    <parent link="map"/>
+    <parent link="velodyne_frame"/>
     <child link="camera_01_frame"/>
     <origin rpy="-1.57079633 0 -1.57079633" xyz="0.79 -0.3 -0.18"/>
   </joint>
@@ -47,7 +47,7 @@
     <visual>
       <origin rpy="1.57079632679 0.0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="https://storage.googleapis.com/assets.foxglove.dev/demo-datasets/kitti-360/urdf/mesh/pacifica_18/wheel.dae"/>
+        <mesh filename="../urdf/meshes/pacifica_18/wheel.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -62,7 +62,7 @@
     </inertial>
   </link>
   <joint name="wheel_rl_joint" type="continuous">
-    <parent link="base"/>
+    <parent link="base_footprint"/>
     <child link="wheel_rl"/>
     <origin rpy="-1.57079632679 0 0" xyz="-1.54 0.77 0"/>
     <axis xyz="0 0 1"/>
@@ -72,7 +72,7 @@
     <visual>
       <origin rpy="1.57079632679 3.1415926535 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="https://storage.googleapis.com/assets.foxglove.dev/demo-datasets/kitti-360/urdf/mesh/pacifica_18/wheel.dae"/>
+        <mesh filename="../urdf/meshes/pacifica_18/wheel.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -87,7 +87,7 @@
     </inertial>
   </link>
   <joint name="wheel_rr_joint" type="continuous">
-    <parent link="base"/>
+    <parent link="base_footprint"/>
     <child link="wheel_rr"/>
     <origin rpy="-1.57079632679 0 0" xyz="-1.54 -0.77 0"/>
     <axis xyz="0 0 1"/>
@@ -97,7 +97,7 @@
     <visual>
       <origin rpy="1.57079632679 0.0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="https://storage.googleapis.com/assets.foxglove.dev/demo-datasets/kitti-360/urdf/mesh/pacifica_18/wheel.dae"/>
+        <mesh filename="../urdf/meshes/pacifica_18/wheel.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -119,7 +119,7 @@
     </inertial>
   </link>
   <joint name="steer_fl_joint" type="revolute">
-    <parent link="base"/>
+    <parent link="base_footprint"/>
     <child link="steer_fl"/>
     <origin rpy="0 0 0" xyz="1.54 0.77 0"/>
     <axis xyz="0 0 1"/>
@@ -136,7 +136,7 @@
     <visual>
       <origin rpy="1.57079632679 3.141592653589793 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="https://storage.googleapis.com/assets.foxglove.dev/demo-datasets/kitti-360/urdf/mesh/pacifica_18/wheel.dae"/>
+        <mesh filename="../urdf/meshes/pacifica_18/wheel.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -158,7 +158,7 @@
     </inertial>
   </link>
   <joint name="steer_fr_joint" type="revolute">
-    <parent link="base"/>
+    <parent link="base_footprint"/>
     <child link="steer_fr"/>
     <origin rpy="0 0 0" xyz="1.54 -0.77 0"/>
     <axis xyz="0 0 1"/>
