@@ -12,11 +12,11 @@
     <origin xyz="0 0 0.31" rpy="0 0 0"/>
   -->
 
-
+  <link name="map"/>
   <link name="base">
     <visual>
       <geometry>
-        <mesh filename="https://github.com/allenwang-git/vehicle-model/blob/main/vehicle_model/meshes/lc.dae" scale="1.0 1.0 1.0"/>
+        <mesh filename="./meshes/lc.dae" scale="1.0 1.0 1.0"/>
 
       </geometry>
         <!-- <material name="aluminum"> 
